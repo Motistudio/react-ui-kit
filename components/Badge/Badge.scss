@@ -1,0 +1,32 @@
+@import '../../style/vars';
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: em(25px); // 25px out of 16px
+  min-height: em(25px);
+  box-sizing: border-box;
+  padding: 0 em(5px);
+  background: $app-red;
+  border-radius: em(25px);
+  text-align: center;
+  color: #fff;
+  line-height: em(25px);
+  @include global-transition;
+
+  &> span {
+    text-align: center;
+    font-size: em(14px);
+  }
+}
+
+a.badge, .badge.clickable {
+  cursor: pointer;
+  &:hover {
+    background: lighten($app-red, 10%);
+  }
+  &:active {
+    background: darken($app-red, 10%);
+  }
+}

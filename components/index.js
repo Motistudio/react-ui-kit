@@ -1,3 +1,9 @@
-import App from './App/App'
+'use strict'
 
-export default App
+import Badge from './Badge'
+import Input from './Input'
+
+export {
+  Badge,
+  Input
+}

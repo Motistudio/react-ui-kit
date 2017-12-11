@@ -1,0 +1,37 @@
+// global vars
+
+body {
+  font: 16px 'Myriad Pro', 'Arial';
+}
+
+// colors
+// $app-red: #E06686;
+$app-red: #e74c3c;
+
+// sizes
+$line-height: 30px;
+
+// functions:
+
+$global-font-size: 16; // Default
+
+@function em($pixels, $context: $global-font-size) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1em;
+}
+
+@mixin global-transition() {
+  $args: all .2s ease-in;
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
