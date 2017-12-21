@@ -1,0 +1,79 @@
+@import '../../style/vars';
+
+button, .button {
+  position: relative;
+  height: $line-height;
+  padding: 0 10px;
+  background: $app-lightgray;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: $component-border-radius;
+  font-size: 0.875em;
+  line-height: $line-height;
+  outline: none;
+  cursor: pointer;
+  @include global-transition;
+
+  .badge {
+    position: absolute;
+    right: -2.5px;
+    top: -2.5px;
+    min-width: 10px;
+    min-height: 10px;
+    padding: 0;
+    border-radius: 100%;
+    background: $app-red;
+    line-height: 10px;
+  }
+
+  &:hover {
+    border-color: rgba(0, 0, 0, 0.4);
+  }
+  &:active {
+    color: $app-blue;
+    border-color: $app-blue;
+  }
+
+  &.success {
+    border-color: $app-green;
+
+    &:hover {
+      border-color: darken($app-green, 2.5%);
+    }
+    &:active {
+      border-color: darken($app-green, 5%);
+    }
+  }
+
+  &.danger {
+    border-color: $app-red;
+  }
+
+  // Icon
+  &.icon {
+    padding: 0;
+    min-width: $line-height;
+    border: none;
+    border-radius: 100%;
+    background: #f8f8f8;
+    text-align: center;
+
+    &:hover {
+      background: darken(#f8f8f8, 2.5%);
+    }
+    &:active {
+      background: darken(#f8f8f8, 5%);
+    }
+
+    &.success {
+      color: $app-white;
+      background: $app-green;
+
+      &:hover {
+        background: darken($app-green, 2.5%);
+      }
+      &:active {
+        background: darken($app-green, 5%);
+      }
+    }
+  }
+}
