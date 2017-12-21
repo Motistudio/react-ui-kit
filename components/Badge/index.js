@@ -6,7 +6,7 @@ import classNames from 'classnames'
 
 import './Badge.scss'
 
-export default class Badge extends React.Component {
+class Badge extends React.Component {
   render () {
     const {children} = this.props
     return (
@@ -16,3 +16,14 @@ export default class Badge extends React.Component {
     )
   }
 }
+
+Badge.propTypes = {
+  className: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.object
+  ]),
+  children: PropTypes.node
+}
+
+export default Badge

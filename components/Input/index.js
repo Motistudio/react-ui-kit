@@ -2,10 +2,11 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import './Input.scss'
 
-export default class Searchbar extends React.Component {
+class Searchbar extends React.Component {
   hasContent () {
     const {children} = this.props
     return !!children && (Array.isArray(children) ? children.length : true)
@@ -19,7 +20,7 @@ export default class Searchbar extends React.Component {
   }
   render () {
     return (
-      <div className='input'>
+      <div className={classNames('input', this.props.className)}>
         <div className='input-container'>
           <input type='text' />
         </div>
@@ -28,3 +29,14 @@ export default class Searchbar extends React.Component {
     )
   }
 }
+
+Searchbar.propTypes = {
+  className: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.object
+  ]),
+  children: PropTypes.node
+}
+
+export default Searchbar

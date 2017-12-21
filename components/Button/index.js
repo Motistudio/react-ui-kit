@@ -8,8 +8,8 @@ import Icon from '../Icon'
 
 import './Button.scss'
 
-export default (props = {}) => {
-  const {children, className, notifications, ...otherProps} = props
+const Button = (props = {}) => {
+  const {children, className, ...otherProps} = props
   let componentClassName = className
 
   // check if it's an icon button
@@ -23,3 +23,14 @@ export default (props = {}) => {
     </button>
   )
 }
+
+Button.propTypes = {
+  className: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.object
+  ]),
+  children: PropTypes.node
+}
+
+export default Button

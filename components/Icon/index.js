@@ -12,13 +12,18 @@ class Icon extends React.Component {
     const typeClasses = Array.isArray(type) ? type.map(type => `fa-${type}`) : `fa-${type}`
     return (
       <span className={classNames('icon', this.props.className)}>
-        <i className={classNames('fa', typeClasses)}></i>
+        <i className={classNames('fa', typeClasses)} />
       </span>
     )
   }
 }
 
 Icon.propTypes = {
+  className: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.object
+  ]),
   type: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array
