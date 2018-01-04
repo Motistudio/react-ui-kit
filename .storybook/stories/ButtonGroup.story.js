@@ -5,10 +5,14 @@ import {storiesOf} from '@storybook/react'
 import {action} from '@storybook/addon-actions'
 import {withKnobs, text, boolean, number} from '@storybook/addon-knobs'
 
-import {Input} from '../../components'
+import {ButtonGroup, Button} from '../../components'
 
-storiesOf('Input', module)
+storiesOf('ButtonGroup', module)
   .addDecorator(withKnobs)
   .add('default', () => (
-    <Input placeholder={text('Placeholder', 'placeholder...')} />
+    <ButtonGroup>
+      <Button>{'button 1'}</Button>
+      <Button>{'button 2'}</Button>
+      <Button>{'button 3'}</Button>
+    </ButtonGroup>
   ))

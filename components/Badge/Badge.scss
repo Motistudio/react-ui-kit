@@ -8,10 +8,10 @@
   min-height: em(25px);
   box-sizing: border-box;
   padding: 0 em(5px);
-  background: $app-red;
+  background: $app-color-lightgray;
   border-radius: em(25px);
   text-align: center;
-  color: #fff;
+  color: $app-color-black;
   line-height: em(25px);
   @include global-transition;
 
@@ -19,14 +19,55 @@
     text-align: center;
     font-size: em(14px);
   }
+
+  &.success {
+    color: #fff;
+    background: $app-color-green;
+  }
+  &.danger {
+    color: #fff;
+    background: $app-color-red;
+  }
+  &.primary {
+    color: #fff;
+    background: $app-color-blue;
+  }
 }
 
 a.badge, .badge.clickable {
   cursor: pointer;
   &:hover {
-    background: lighten($app-red, 10%);
+    background: lighten($app-color-lightgray, 10%);
   }
   &:active {
-    background: darken($app-red, 10%);
+    background: darken($app-color-lightgray, 10%);
+  }
+
+  // success
+  &.success {
+    &:hover {
+      background: lighten($app-color-green, 10%);
+    }
+    &:active {
+      background: darken($app-color-green, 10%);
+    }
+  }
+
+  &.danger {
+    &:hover {
+      background: lighten($app-color-red, 10%);
+    }
+    &:active {
+      background: darken($app-color-red, 10%);
+    }
+  }
+
+  &.primary {
+    &:hover {
+      background: lighten($app-color-blue, 10%);
+    }
+    &:active {
+      background: darken($app-color-blue, 10%);
+    }
   }
 }

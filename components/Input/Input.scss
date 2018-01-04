@@ -1,3 +1,39 @@
+@import '../../style/vars';
+
+input[type='text'],
+input[type='password'],
 .input {
+  height: $line-height;
+  padding: 0 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.05);
+  line-height: $line-height;
+  transition: all .2s ease-in;
+
+  &:focus {
+    background: rgba(0, 0, 0, 0.1);
+  }
+}
+
+.input-component {
+  position: relative;
   display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+
+  &> .wrapper {
+    width: 100%;
+  }
+  input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .icon {
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+    right: 5px;
+  }
 }

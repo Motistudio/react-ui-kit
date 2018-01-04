@@ -6,7 +6,7 @@ import classNames from 'classnames'
 
 import './Input.scss'
 
-class Searchbar extends React.Component {
+class Input extends React.Component {
   hasContent () {
     const {children} = this.props
     return !!children && (Array.isArray(children) ? children.length : true)
@@ -19,10 +19,11 @@ class Searchbar extends React.Component {
     )
   }
   render () {
+    const {className, children, ...props} = this.props
     return (
-      <div className={classNames('input', this.props.className)}>
+      <div className={classNames('input-component', className)}>
         <div className='input-container'>
-          <input type='text' />
+          <input type='text' {...props} />
         </div>
         {this.hasContent() && this.getContentElements()}
       </div>
@@ -30,7 +31,7 @@ class Searchbar extends React.Component {
   }
 }
 
-Searchbar.propTypes = {
+Input.propTypes = {
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,
@@ -39,4 +40,4 @@ Searchbar.propTypes = {
   children: PropTypes.node
 }
 
-export default Searchbar
+export default Input

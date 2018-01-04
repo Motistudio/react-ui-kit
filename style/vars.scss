@@ -5,12 +5,13 @@ body {
 }
 
 // colors
-// $app-red: #E06686;
-$app-red: #e74c3c;
-$app-blue: #3498db;
-$app-green: #2ecc71;
-$app-lightgray: #ecf0f1;
-$app-white: #fff;
+// $app-color-red: #E06686;
+$app-color-red: #e74c3c !default;
+$app-color-blue: #3498db !default;
+$app-color-green: #2ecc71 !default;
+$app-color-lightgray: #ecf0f1 !default;
+$app-color-white: #fff !default;
+$app-color-black: #000 !default;
 
 // sizes
 $line-height: 30px;

@@ -4,9 +4,9 @@ button, .button {
   position: relative;
   height: $line-height;
   padding: 0 10px;
-  background: $app-lightgray;
+  background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: $component-border-radius;
+  border-radius: 3px;
   font-size: 0.875em;
   line-height: $line-height;
   outline: none;
@@ -21,7 +21,7 @@ button, .button {
     min-height: 10px;
     padding: 0;
     border-radius: 100%;
-    background: $app-red;
+    background: $app-color-red;
     line-height: 10px;
   }
 
@@ -29,23 +29,23 @@ button, .button {
     border-color: rgba(0, 0, 0, 0.4);
   }
   &:active {
-    color: $app-blue;
-    border-color: $app-blue;
+    color: $app-color-blue;
+    border-color: $app-color-blue;
   }
 
   &.success {
-    border-color: $app-green;
+    border-color: $app-color-green;
 
     &:hover {
-      border-color: darken($app-green, 2.5%);
+      border-color: darken($app-color-green, 2.5%);
     }
     &:active {
-      border-color: darken($app-green, 5%);
+      border-color: darken($app-color-green, 5%);
     }
   }
 
   &.danger {
-    border-color: $app-red;
+    border-color: $app-color-red;
   }
 
   // Icon
@@ -65,14 +65,44 @@ button, .button {
     }
 
     &.success {
-      color: $app-white;
-      background: $app-green;
+      color: $app-color-white;
+      background: $app-color-green;
 
       &:hover {
-        background: darken($app-green, 2.5%);
+        background: darken($app-color-green, 2.5%);
       }
       &:active {
-        background: darken($app-green, 5%);
+        background: darken($app-color-green, 5%);
+      }
+    }
+    &.danger {
+      color: $app-color-white;
+      background: $app-color-red;
+
+      &:hover {
+        background: darken($app-color-red, 2.5%);
+      }
+      &:active {
+        background: darken($app-color-red, 5%);
+      }
+
+      .badge {
+        border: 1px solid $app-color-white;
+      }
+    }
+    &.primary {
+      color: $app-color-white;
+      background: $app-color-blue;
+
+      &:hover {
+        background: darken($app-color-blue, 2.5%);
+      }
+      &:active {
+        background: darken($app-color-blue, 5%);
+      }
+
+      .badge {
+        border: 1px solid $app-color-white;
       }
     }
   }

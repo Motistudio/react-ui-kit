@@ -2,4 +2,7 @@
 
 import './Badge.story'
 import './Button.story'
+import './ButtonGroup.story'
+import './Gallery.story'
 import './Input.story'
+import './Tabs.story'
