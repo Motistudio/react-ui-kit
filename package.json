@@ -1,13 +1,13 @@
 {
   "name": "react-ui-collection",
-  "version": "0.1.12",
+  "version": "0.1.135",
   "description": "A collection of components, customable with SASS",
-  "main": "dist/index.js",
+  "main": "dist/.",
   "jsnext:main": "components/index.js",
   "module": "dist/index.js",
   "files": [
     "components",
-    "dist",
+    "dist/.",
     "README"
   ],
   "scripts": {

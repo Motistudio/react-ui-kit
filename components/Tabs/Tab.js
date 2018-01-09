@@ -15,7 +15,9 @@ const Tab = (props) => {
 
 Tab.propTypes = {
   name: PropTypes.string,
-  title: PropTypes.string
+  title: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string
 }
 
 export default Tab

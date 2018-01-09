@@ -16,3 +16,10 @@ storiesOf('ButtonGroup', module)
       <Button>{'button 3'}</Button>
     </ButtonGroup>
   ))
+  .add('with selected button', () => (
+    <ButtonGroup>
+      <Button>{'button 1'}</Button>
+      <Button className='active'>{'button 2'}</Button>
+      <Button>{'button 3'}</Button>
+    </ButtonGroup>
+  ))

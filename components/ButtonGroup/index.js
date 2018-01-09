@@ -15,4 +15,9 @@ const ButtonGroup = (props) => {
   )
 }
 
+ButtonGroup.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string
+}
+
 export default ButtonGroup

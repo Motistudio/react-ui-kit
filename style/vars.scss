@@ -9,13 +9,18 @@ body {
 $app-color-red: #e74c3c !default;
 $app-color-blue: #3498db !default;
 $app-color-green: #2ecc71 !default;
+$app-color-yellow: #f1c40f !default;
+$app-color-gray: #bdc3c7 !default;
 $app-color-lightgray: #ecf0f1 !default;
 $app-color-white: #fff !default;
 $app-color-black: #000 !default;
 
 // sizes
-$line-height: 30px;
-$component-border-radius: 4px;
+$line-height: 30px !default;
+$component-border-radius: 4px !default;
+
+// components
+$button-border-width: 1px;
 
 // functions:
 

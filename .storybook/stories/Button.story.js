@@ -15,6 +15,9 @@ storiesOf('Button', module)
   .add('With content', () => (
     <Button className={text('Class name', '')}>{text('Text', 'button text')}</Button>
   ))
+  .add('Disabled', () => (
+    <Button className={text('Class name', '')} disabled>{text('Text', 'button text')}</Button>
+  ))
   .add('Icon button', () => (
     <Button className={text('Class name', '')}><Icon type='rocket' /></Button>
   ))

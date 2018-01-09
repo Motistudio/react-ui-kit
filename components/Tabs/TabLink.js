@@ -4,16 +4,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-const onClick = function (props, e) {
-  e.preventDefault()
-  if (typeof props.onClick === 'function') {
-    props.onClick(props.tab)
-  }
-}
-
 const TabLink = (props) => {
+  /**
+   * click handler wrapper for the click at the layer above
+   */
+  const onClick = function (e) {
+    e.preventDefault()
+    const {onClick} = props
+    if (typeof onClick === 'function') {
+      return onClick(props.tab)
+    }
+  }
   return (
-    <a href={'javascript:;'} className={classNames('tabs', props.className)} onClick={onClick.bind(null, props)}>
+    <a href={'javascript:;'} className={classNames('tabs', props.className)} onClick={onClick}>
       {props.children}
     </a>
   )
@@ -21,7 +24,9 @@ const TabLink = (props) => {
 
 TabLink.propTypes = {
   tab: PropTypes.string,
-  onClick: PropTypes.func
+  children: PropTypes.node,
+  onClick: PropTypes.func,
+  className: PropTypes.string
 }
 
 export default TabLink
