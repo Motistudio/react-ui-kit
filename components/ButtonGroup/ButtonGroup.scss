@@ -3,6 +3,7 @@
 .button-group {
   position: relative;
   z-index: auto;
+  position: flex;
 
   &> button {
     position: relative;
