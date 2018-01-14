@@ -1,6 +1,6 @@
 {
   "name": "react-ui-collection",
-  "version": "0.1.141",
+  "version": "0.1.142",
   "description": "A collection of components, customable with SASS",
   "main": "dist/.",
   "jsnext:main": "components/index.js",
@@ -14,6 +14,7 @@
     "lint": "eslint components/** tests/**",
     "lintfix": "eslint --fix components/** tests/**",
     "prepublish": "npm run lint && npm run build",
+	"postinstall": "npm run build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "storybook": "start-storybook -p 6006",
     "test": "mocha --require tests/config/setup 'tests/**/*.test.js'",
