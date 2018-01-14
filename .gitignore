@@ -5,6 +5,4 @@ dist
 lib
 coverage
 .idea
-examples/bundle.js
-examples/style.css
 npm-debug.log
