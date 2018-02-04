@@ -94,14 +94,25 @@ class Tabs extends React.Component {
   }
 
   render () {
-    const {className} = this.props
-    const {tabs, other, menu} = this.state.elements
-    const tab = tabs.filter(tab => tab.props.name === this.state.show)
+    const {className, children} = this.props
+    const {other, menu} = this.state.elements
+    const tabs = React.Children.toArray(children).filter((node) => {
+      return node.type === Tab
+    })
 
     return (
       <div className={classNames('tabs', className)}>
         {menu || this.getMenuElement(tabs)}
-        {tab}
+        {tabs.map((tab, key) => {
+          if (tab.props.name === this.state.show) {
+            return Object.assign({}, tab, {
+              props: Object.assign({}, tab.props, {
+                className: classNames(tab.props.className, 'current')
+              })
+            })
+          }
+          return tab
+        })}
         {other}
       </div>
     )
@@ -109,7 +120,8 @@ class Tabs extends React.Component {
 }
 
 Tabs.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  children: PropTypes.node
 }
 
 Tabs.Tab = Tab

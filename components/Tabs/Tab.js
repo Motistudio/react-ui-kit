@@ -7,7 +7,7 @@ import classNames from 'classnames'
 const Tab = (props) => {
   const {children, className, name, ...otherProps} = props
   return (
-    <div className={classNames('tabs', className)} {...otherProps}>
+    <div className={classNames('tab', className)} {...otherProps}>
       {children}
     </div>
   )

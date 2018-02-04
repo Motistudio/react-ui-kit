@@ -48,6 +48,10 @@
     }
   }
   .tab {
+    display: none;
     width: 100%;
+    &.current {
+      display: block;
+    }
   }
 }
