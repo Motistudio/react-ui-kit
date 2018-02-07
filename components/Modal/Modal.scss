@@ -8,7 +8,7 @@
   bottom: 0;
   left: 0;
   opacity: 1;
-  background: rgba(0, 0, 0, 0.7);
+  background: $modal-background;
   transition: all .2s ease-in;
 
   .modal {
@@ -17,6 +17,7 @@
     left: 50%;
     opacity: 1;
     transform: translate(-50%, -50%);
+    background: $app-color-white;
     transition: all .2s ease-in;
   }
 
