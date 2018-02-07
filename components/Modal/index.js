@@ -20,22 +20,23 @@ class Modal extends React.Component {
     return null
   }
   _updateChild () {
+    let node = null
     if (!this.props.hasOwnProperty('show') || !!this.props.show) {
-      const node = (
-        <div className='overlay'>
-          <div className='modal' key={this.props.childId}>
+      node = (
+        <div className='overlay' key={this.props.childId}>
+          <div className='modal'>
             {this.props.children}
           </div>
         </div>
       )
-      this.props.updateChild(node)
     }
+    this.props.updateChild(node)
   }
 }
 
 Modal.propTypes = {
   updateChild: PropTypes.func,
-  show: PropTypes.boolean,
+  show: PropTypes.bool,
   childId: PropTypes.string,
   children: PropTypes.node
 }

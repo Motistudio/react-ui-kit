@@ -6,8 +6,8 @@ import ButtonGroup from './ButtonGroup'
 import Gallery from './Gallery'
 import Icon from './Icon'
 import Input from './Input'
-// import Modal from './Modal'
-// import Provider from './Provider'
+import Modal from './Modal'
+import Provider from './Provider'
 import Tabs from './Tabs'
 
 module.exports = {
@@ -17,7 +17,7 @@ module.exports = {
   Gallery,
   Icon,
   Input,
-  // Modal,
-  // Provider,
+  Modal,
+  Provider,
   Tabs
 }

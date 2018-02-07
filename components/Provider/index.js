@@ -3,12 +3,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {PortalProvider, portalTarget} from 'react-portals'
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 
 const ModalPortal = portalTarget('page-modal')(({children, ...props}) => {
   return (
-    <div className='modal-container' {...props}>
+    <CSSTransitionGroup className='modal-container'
+      transitionName='overlay'
+      transitionEnterTimeout={500}
+      transitionLeaveTimeout={300}
+      component='div' {...props}>
       {children}
-    </div>
+    </CSSTransitionGroup>
   )
 })
 
