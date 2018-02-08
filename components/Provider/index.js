@@ -2,20 +2,9 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import {PortalProvider, portalTarget} from 'react-portals'
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
+import {PortalProvider} from 'react-portals'
 
-const ModalPortal = portalTarget('page-modal')(({children, ...props}) => {
-  return (
-    <CSSTransitionGroup className='modal-container'
-      transitionName='overlay'
-      transitionEnterTimeout={500}
-      transitionLeaveTimeout={300}
-      component='div' {...props}>
-      {children}
-    </CSSTransitionGroup>
-  )
-})
+import ModalContainer from '../ModalContainer'
 
 class Provider extends React.Component {
   render () {
@@ -23,7 +12,7 @@ class Provider extends React.Component {
     return (
       <PortalProvider>
         <React.Fragment>
-          <ModalPortal />
+          <ModalContainer />
           {children}
         </React.Fragment>
       </PortalProvider>

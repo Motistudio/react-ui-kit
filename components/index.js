@@ -7,6 +7,7 @@ import Gallery from './Gallery'
 import Icon from './Icon'
 import Input from './Input'
 import Modal from './Modal'
+import ModalContainer from './ModalContainer'
 import Provider from './Provider'
 import Tabs from './Tabs'
 
@@ -18,6 +19,7 @@ module.exports = {
   Icon,
   Input,
   Modal,
+  ModalContainer,
   Provider,
   Tabs
 }

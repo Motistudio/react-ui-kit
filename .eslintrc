@@ -6,6 +6,11 @@
   },
   "rules": {
     "no-underscore-dangle": 0,
-    "react/jsx-no-bind": 0
-  }
+    "react/jsx-no-bind": 0,
+    "react/no-unused-prop-types": 0,
+    "babel/new-cap": 1
+  },
+  "plugins": [
+    "babel"
+  ]
 }

@@ -1,6 +1,6 @@
 {
   "name": "react-ui-collection",
-  "version": "0.1.1461",
+  "version": "0.1.147",
   "description": "A collection of components, customable with SASS",
   "main": "dist/.",
   "jsnext:main": "components/index.js",
@@ -63,6 +63,7 @@
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-config-standard-react": "^5.0.0",
+    "eslint-plugin-babel": "^4.1.2",
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-node": "^5.0.0",
     "eslint-plugin-promise": "^3.5.0",

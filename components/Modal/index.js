@@ -6,12 +6,6 @@ import {portal} from 'react-portals'
 
 import './Modal.scss'
 
-const onOverlayClick = function (e) {
-  if (e.target === e.currentTarget && typeof this.props.onOverlayClick === 'function') {
-    this.props.onOverlayClick(e)
-  }
-}
-
 const CloseButton = (props) => {
   return (
     <div className='close-button' {...props}>
@@ -20,11 +14,13 @@ const CloseButton = (props) => {
   )
 }
 
-class Modal extends React.Component {
-  constructor (props) {
-    super(props)
-    this.onOverlayClick = onOverlayClick.bind(this)
+const onOverlayClick = function (e) {
+  if (e.target === e.currentTarget && typeof this.props.onOverlayClick === 'function') {
+    this.props.onOverlayClick(e)
   }
+}
+
+class Modal extends React.Component {
   componentDidMount () {
     this._updateChild()
   }
@@ -41,7 +37,7 @@ class Modal extends React.Component {
     let node = null
     if (!this.props.hasOwnProperty('show') || !!this.props.show) {
       node = (
-        <div className='overlay' key={this.props.childId} onClick={this.onOverlayClick}>
+        <div className='overlay' key={this.props.childId} onClick={onOverlayClick.bind(this)}>
           <div className='modal'>
             {!!this.props.closeButton && (<CloseButton onClick={this.props.onCloseClick} />)}
             {this.props.children}
