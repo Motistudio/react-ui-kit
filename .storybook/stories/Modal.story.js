@@ -13,7 +13,9 @@ storiesOf('Modal', module)
     return (
       <Provider>
         <Button>{'Click me'}</Button>
-        <Modal show={boolean('show', false)}>{'Test modal!'}</Modal>
+        <Modal show={boolean('Show', false)} closeButton={boolean('Has close button', true)} onOverlayClick={action('Overlay click')} onCloseClick={action('Close click')}>
+          <p>{'Test modal!'}</p>
+        </Modal>
       </Provider>
     )
   })

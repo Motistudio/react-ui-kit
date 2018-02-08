@@ -12,6 +12,7 @@
   transition: all .2s ease-in;
 
   .modal {
+    $close-button-size: 20px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -19,6 +20,27 @@
     transform: translate(-50%, -50%);
     background: $app-color-white;
     transition: all .2s ease-in;
+
+    &> .close-button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: $close-button-size;
+      height: $close-button-size;
+      overflow: hidden;
+      text-align: center;
+      opacity: 0.5;
+      line-height: $close-button-size;
+      cursor: pointer;
+      // transition: opacity .2s ease-in;
+
+      &:hover {
+        opacity: 0.8;
+      }
+      &:active {
+        opacity: 0.9;
+      }
+    }
   }
 
   &.overlay-enter {

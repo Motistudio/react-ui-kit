@@ -1,6 +1,6 @@
 {
   "name": "react-ui-collection",
-  "version": "0.1.1452",
+  "version": "0.1.1461",
   "description": "A collection of components, customable with SASS",
   "main": "dist/.",
   "jsnext:main": "components/index.js",
