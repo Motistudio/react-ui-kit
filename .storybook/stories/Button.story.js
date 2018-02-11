@@ -15,7 +15,7 @@ const getButtons = (props = {}) => {
   return (
     <div>
       <p>
-        <Button className={text('Class name', ''), className} {...rest}>{text('Text', 'button text')}</Button>
+        <Button className={[text('Class name', ''), className]} {...rest}>{text('Text', 'button text')}</Button>
       </p>
       <p>
         <Button className={[text('Class name', ''), 'primary', className]} {...rest}>{'primary'}</Button>
