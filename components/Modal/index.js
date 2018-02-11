@@ -51,7 +51,7 @@ class Modal extends React.Component {
 
 Modal.propTypes = {
   updateChild: PropTypes.func,
-  childId: PropTypes.string,
+  childId: PropTypes.oneOf(PropTypes.string, PropTypes.number),
   children: PropTypes.node,
   show: PropTypes.bool,
   onOverlayClick: PropTypes.func,

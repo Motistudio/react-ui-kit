@@ -8,12 +8,29 @@ input[type='password'],
   border: none;
   outline: none;
   border-radius: 5px;
-  background: rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  background: rgba($app-color-black, 0.05);
   line-height: $line-height;
   transition: all .2s ease-in;
 
+  &:hover {
+    background: rgba($app-color-black, 0.075);
+  }
   &:focus {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba($app-color-black, 0.1);
+  }
+
+  &.danger {
+    border: 1px solid rgba($app-color-red, 0.4);
+    &:focus {
+      border-color: rgba($app-color-red, 0.5);
+    }
+  }
+  &.success {
+    border: 1px solid rgba($app-color-green, 0.4);
+    &:focus {
+      border-color: rgba($app-color-green, 0.5);
+    }
   }
 }
 

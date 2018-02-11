@@ -34,6 +34,7 @@ button, .button {
     border-color: $app-color-blue;
   }
 
+  // success
   &.success {
     color: $app-color-green;
     border-color: $app-color-green;
@@ -49,6 +50,7 @@ button, .button {
     }
   }
 
+  // danger
   &.danger {
     color: $app-color-red;
     border-color: $app-color-red;
@@ -63,6 +65,7 @@ button, .button {
     }
   }
 
+  // primary
   &.primary {
     color: $app-color-blue;
     border-color: $app-color-blue;
@@ -77,6 +80,7 @@ button, .button {
     }
   }
 
+  // warning
   &.warning {
     color: $app-color-yellow;
     border-color: $app-color-yellow;
@@ -117,6 +121,12 @@ button, .button {
       border-color: mix($app-color-yellow, $app-color-gray, $origin-color-strength);
     }
   }
+
+  &.link {
+    background: transparent;
+    border: none;
+  }
+
   // Icon
   &.icon {
     padding: 0;

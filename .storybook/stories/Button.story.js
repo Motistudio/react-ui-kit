@@ -7,19 +7,48 @@ import {withKnobs, text, boolean, number} from '@storybook/addon-knobs'
 
 import {Button, Icon, Badge} from '../../components'
 
+/**
+ * Returns a group of buttons with props
+ */
+const getButtons = (props = {}) => {
+  const {className, ...rest} = props
+  return (
+    <div>
+      <p>
+        <Button className={text('Class name', ''), className} {...rest}>{text('Text', 'button text')}</Button>
+      </p>
+      <p>
+        <Button className={[text('Class name', ''), 'primary', className]} {...rest}>{'primary'}</Button>
+      </p>
+      <p>
+        <Button className={[text('Class name', ''), 'success', className]} {...rest}>{'success'}</Button>
+      </p>
+      <p>
+        <Button className={[text('Class name', ''), 'danger', className]} {...rest}>{'danger'}</Button>
+      </p>
+      <p>
+        <Button className={[text('Class name', ''), 'warning', className]} {...rest}>{'warning'}</Button>
+      </p>
+    </div>
+  )
+}
+
 storiesOf('Button', module)
   .addDecorator(withKnobs)
   .add('Default', () => (
     <Button />
   ))
-  .add('With content', () => (
-    <Button className={text('Class name', '')}>{text('Text', 'button text')}</Button>
-  ))
-  .add('Disabled', () => (
-    <Button className={text('Class name', '')} disabled>{text('Text', 'button text')}</Button>
-  ))
+  .add('With content', () => getButtons())
+  .add('Link', () => getButtons({className: 'link'}))
+  .add('Disabled', () => getButtons({disabled: true}))
   .add('Icon button', () => (
-    <Button className={text('Class name', '')}><Icon type='rocket' /></Button>
+    <div>
+      <Button className={text('Class name', '')}><Icon type='rocket' /></Button>
+      <Button className={text('Class name', ''), 'primary'}><Icon type='rocket' /></Button>
+      <Button className={text('Class name', ''), 'success'}><Icon type='rocket' /></Button>
+      <Button className={text('Class name', ''), 'danger'}><Icon type='rocket' /></Button>
+      <Button className={text('Class name', ''), 'warning'}><Icon type='rocket' /></Button>
+    </div>
   ))
   .add('Icon button with a badge', () => (
     <Button className={text('Class name', '')}><Icon type='rocket' /><Badge /></Button>

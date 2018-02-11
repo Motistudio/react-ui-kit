@@ -19,11 +19,11 @@ class Input extends React.Component {
     )
   }
   render () {
-    const {className, children, ...props} = this.props
+    const {className, inputClassName, children, ...props} = this.props
     return (
       <div className={classNames('input-component', className)}>
         <div className='input-container'>
-          <input type='text' {...props} />
+          <input type='text' {...props} className={inputClassName} />
         </div>
         {this.hasContent() && this.getContentElements()}
       </div>
@@ -33,6 +33,11 @@ class Input extends React.Component {
 
 Input.propTypes = {
   className: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.object
+  ]),
+  inputClassName: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,
     PropTypes.object

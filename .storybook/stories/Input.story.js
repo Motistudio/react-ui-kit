@@ -12,3 +12,9 @@ storiesOf('Input', module)
   .add('default', () => (
     <Input placeholder={text('Placeholder', 'placeholder...')} />
   ))
+  .add('error', () => (
+    <Input placeholder={text('Placeholder', 'placeholder...')} inputClassName='danger' />
+  ))
+  .add('success', () => (
+    <Input placeholder={text('Placeholder', 'placeholder...')} inputClassName='success' />
+  ))
