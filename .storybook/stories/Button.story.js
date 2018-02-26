@@ -43,11 +43,11 @@ storiesOf('Button', module)
   .add('Disabled', () => getButtons({disabled: true}))
   .add('Icon button', () => (
     <div>
-      <Button className={text('Class name', '')}><Icon type='rocket' /></Button>
-      <Button className={text('Class name', ''), 'primary'}><Icon type='rocket' /></Button>
-      <Button className={text('Class name', ''), 'success'}><Icon type='rocket' /></Button>
-      <Button className={text('Class name', ''), 'danger'}><Icon type='rocket' /></Button>
-      <Button className={text('Class name', ''), 'warning'}><Icon type='rocket' /></Button>
+      <Button className={text('Class name', '')} icon><Icon type='rocket' /></Button>
+      <Button className={text('Class name', ''), 'primary'} icon><Icon type='rocket' /></Button>
+      <Button className={text('Class name', ''), 'success'} icon><Icon type='rocket' /></Button>
+      <Button className={text('Class name', ''), 'danger'} icon><Icon type='rocket' /></Button>
+      <Button className={text('Class name', ''), 'warning'} icon><Icon type='rocket' /></Button>
     </div>
   ))
   .add('Icon button with a badge', () => (

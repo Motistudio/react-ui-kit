@@ -3,6 +3,7 @@
 import Badge from './Badge'
 import Button from './Button'
 import ButtonGroup from './ButtonGroup'
+import EditedText from './EditedText'
 import Gallery from './Gallery'
 import Icon from './Icon'
 import Input from './Input'
@@ -15,6 +16,7 @@ module.exports = {
   Badge,
   Button,
   ButtonGroup,
+  EditedText,
   Gallery,
   Icon,
   Input,

@@ -2,16 +2,21 @@
 
 button, .button {
   position: relative;
-  height: $line-height;
+  display: inline-flex;
+  align-items: center;
+  height: em($line-height);
   padding: 0 10px;
   background: #fff;
   border: $button-border-width solid rgba(0, 0, 0, 0.3);
   border-radius: 3px;
-  font-size: 0.875em;
-  line-height: $line-height;
+  line-height: em($line-height);
   outline: none;
   cursor: pointer;
   @include global-transition;
+
+  &> span {
+    font-size: em(14px);
+  }
 
   .badge {
     position: absolute;
@@ -139,7 +144,7 @@ button, .button {
   // Icon
   &.icon {
     padding: 0;
-    min-width: $line-height;
+    min-width: em($line-height);
     border: none;
     border-radius: 100%;
     background: #f8f8f8;
@@ -191,6 +196,20 @@ button, .button {
 
       .badge {
         border: 1px solid $app-color-white;
+      }
+    }
+
+    &.warning {
+      color: $app-color-white;
+      background: $app-color-yellow;
+      &:hover {
+        color: darken($app-color-yellow, 2.5%);
+        background: darken($app-color-yellow, 2.5%);
+      }
+      &:active,
+      &.active {
+        color: darken($app-color-yellow, 5%);
+        background: darken($app-color-yellow, 5%);
       }
     }
   }
