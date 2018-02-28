@@ -4,13 +4,13 @@ input[type='text'],
 input[type='password'],
 .input {
   height: $line-height;
-  padding: 0 10px;
+  padding: 0 em(10px);
   border: none;
   outline: none;
-  border-radius: 5px;
+  border-radius: em(5px);
   box-sizing: border-box;
   background: rgba($app-color-black, 0.05);
-  line-height: $line-height;
+  line-height: em($line-height);
   transition: all .2s ease-in;
 
   &:hover {
@@ -50,7 +50,7 @@ input[type='password'],
   .icon {
     position: absolute;
     top: 50%;
-    margin-top: -8px;
-    right: 5px;
+    margin-top: em(-8px);
+    right: em(5px);
   }
 }
