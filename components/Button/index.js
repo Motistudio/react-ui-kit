@@ -16,10 +16,10 @@ const isIcon = (props) => {
 }
 
 const Button = (props = {}) => {
-  const {children, className, ...otherProps} = props
-  const icon = isIcon(props)
+  const {children, icon, className, ...otherProps} = props
+  const isButtonIcon = isIcon(props)
   const componentClassName = classNames({
-    'icon': icon
+    'icon': isButtonIcon
   }, className)
 
   return (
@@ -36,7 +36,7 @@ Button.propTypes = {
     PropTypes.object
   ]),
   children: PropTypes.node,
-  icon: PropTypes.boolean
+  icon: PropTypes.bool
 }
 
 export default Button

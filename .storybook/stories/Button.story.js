@@ -51,5 +51,5 @@ storiesOf('Button', module)
     </div>
   ))
   .add('Icon button with a badge', () => (
-    <Button className={text('Class name', '')}><Icon type='rocket' /><Badge /></Button>
+    <Button className={text('Class name', '')} icon><Icon type='rocket' /><Badge /></Button>
   ))
