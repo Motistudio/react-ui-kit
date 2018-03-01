@@ -9,7 +9,7 @@ button, .button {
   background: #fff;
   border: $button-border-width solid rgba(0, 0, 0, 0.3);
   border-radius: 3px;
-  line-height: em($line-height);
+  line-height: em($line-height - 2px); // two pixels of borders above and below
   outline: none;
   cursor: pointer;
   @include global-transition;
