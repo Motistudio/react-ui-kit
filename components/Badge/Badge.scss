@@ -28,6 +28,10 @@
     color: #fff;
     background: $app-color-red;
   }
+  &.warning {
+    color: #fff;
+    background: $app-color-yellow;
+  }
   &.primary {
     color: #fff;
     background: $app-color-blue;
@@ -59,6 +63,15 @@ a.badge, .badge.clickable {
     }
     &:active {
       background: darken($app-color-red, 10%);
+    }
+  }
+
+  &.warning {
+    &:hover {
+      background: lighten($app-color-yellow, 10%);
+    }
+    &:active {
+      background: darken($app-color-yellow, 10%);
     }
   }
 
