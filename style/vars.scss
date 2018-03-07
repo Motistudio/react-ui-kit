@@ -11,16 +11,17 @@ $app-color-blue: #3498db !default;
 $app-color-green: #2ecc71 !default;
 $app-color-yellow: #f1c40f !default;
 $app-color-gray: #bdc3c7 !default;
+$app-color-turquoise: #1abc9c !default;
 $app-color-lightgray: #ecf0f1 !default;
 $app-color-white: #fff !default;
 $app-color-black: #000 !default;
 
 // sizes
 $line-height: 30px !default;
-$component-border-radius: 4px !default;
+$component-border-radius: $line-height !default;
 
 // components
-$button-border-width: 1px;
+$button-border-width: 1px !default;
 
 $modal-background: rgba($app-color-black, 0.7) !default;
 

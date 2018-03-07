@@ -51,7 +51,7 @@ class EditedText extends React.PureComponent {
     const {className} = this.props
     return (
       <input type='text'
-        className={classNames('edited-text', {'empty': !this.state.editedValue}, className)}
+        className={classNames('edited-text edit', {'empty': !this.state.editedValue}, className)}
         value={this.state.editedValue}
         ref={(input) => { this.input = input }}
         onChange={(e) => this.setState({editedValue: e.target.value})}

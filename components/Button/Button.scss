@@ -1,18 +1,75 @@
 @import '../../style/vars';
 
+@mixin button-filled ($color) {
+  color: $app-color-white;
+  background: $color;
+  border-width: 0;
+
+  &:hover {
+    background: darken($color, 2.5%);
+  }
+  &:active,
+  &.active {
+    background: darken($color, 5%);
+  }
+
+  &.disabled,
+  &[disabled] {
+    background: mix($color, $app-color-gray, 40%);
+  }
+}
+
+@mixin button-lined ($color, $border-color: $color) {
+  color: $color;
+  background: $app-color-white;
+  border-width: $button-border-width;
+  border-color: $border-color;
+
+  &:hover {
+    color: darken($color, 2.5%);
+    border-color: darken($border-color, 2.5%);
+  }
+  &:active,
+  &.active {
+    color: darken($color, 5%);
+    border-color: darken($border-color, 5%);
+  }
+  &.disabled,
+  &[disabled] {
+    border-color: mix($border-color, $app-color-gray, 40%);
+  }
+}
+
+@mixin button-text ($color) {
+  color: $color;
+  border-color: $color;
+
+  &.disabled,
+  &[disabled] {
+    color: mix($color, $app-color-gray, 40%);
+  }
+}
+
 button, .button {
   position: relative;
   display: inline-flex;
   align-items: center;
   height: em($line-height);
   padding: 0 10px;
-  background: #fff;
-  border: $button-border-width solid rgba(0, 0, 0, 0.3);
-  border-radius: 3px;
+  background: $app-color-white;
+  border: $button-border-width solid rgba($app-color-black, 0.2);
+  border-radius: em($component-border-radius);
   line-height: em($line-height - 2px); // two pixels of borders above and below
   outline: none;
   cursor: pointer;
   @include global-transition;
+
+  &.disabled,
+  &[disabled] {
+    cursor: default;
+    color: $app-color-gray;
+    border-color: $app-color-gray;
+  }
 
   &> span {
     font-size: em(14px);
@@ -30,101 +87,37 @@ button, .button {
     line-height: em(10px);
   }
 
-  &:hover {
-    border-color: rgba(0, 0, 0, 0.4);
-  }
-  &:active,
-  &.active {
-    color: $app-color-blue;
-    border-color: $app-color-blue;
+  @include button-filled($app-color-gray);
+
+  &.disabled,
+  &[disabled] {
+    color: $app-color-white;
   }
 
   // success
   &.success {
-    color: $app-color-green;
-    border-color: $app-color-green;
-
-    &:hover {
-      color: darken($app-color-green, 2.5%);
-      border-color: darken($app-color-green, 2.5%);
-    }
-    &:active,
-    &.active {
-      color: darken($app-color-green, 5%);
-      border-color: darken($app-color-green, 5%);
-    }
+    @include button-filled($app-color-green);
   }
 
   // danger
   &.danger {
-    color: $app-color-red;
-    border-color: $app-color-red;
-    &:hover {
-      color: darken($app-color-red, 2.5%);
-      border-color: darken($app-color-red, 2.5%);
-    }
-    &:active,
-    &.active {
-      color: darken($app-color-red, 5%);
-      border-color: darken($app-color-red, 5%);
-    }
+    @include button-filled($app-color-red);
   }
 
   // primary
   &.primary {
-    color: $app-color-blue;
-    border-color: $app-color-blue;
-    &:hover {
-      color: darken($app-color-blue, 2.5%);
-      border-color: darken($app-color-blue, 2.5%);
-    }
-    &:active,
-    &.active {
-      color: darken($app-color-blue, 5%);
-      border-color: darken($app-color-blue, 5%);
-    }
+    @include button-filled($app-color-blue);
   }
 
   // warning
   &.warning {
-    color: $app-color-yellow;
-    border-color: $app-color-yellow;
+    @include button-filled($app-color-yellow);
     text-shadow: 0 1px rgba(darken($app-color-yellow, 5%), 0.2);
-    &:hover {
-      color: darken($app-color-yellow, 2.5%);
-      border-color: darken($app-color-yellow, 2.5%);
-    }
-    &:active,
-    &.active {
-      color: darken($app-color-yellow, 5%);
-      border-color: darken($app-color-yellow, 5%);
-    }
   }
 
-  &.disabled,
-  &[disabled] {
-    cursor: default;
-    color: $app-color-gray;
-    border-color: $app-color-gray;
-
-    $origin-color-strength: 40%;
-
-    &.success {
-      color: mix($app-color-green, $app-color-gray, $origin-color-strength);
-      border-color: mix($app-color-green, $app-color-gray, $origin-color-strength);
-    }
-    &.danger {
-      color: mix($app-color-red, $app-color-gray, $origin-color-strength);
-      border-color: mix($app-color-red, $app-color-gray, $origin-color-strength);
-    }
-    &.primary {
-      color: mix($app-color-blue, $app-color-gray, $origin-color-strength);
-      border-color: mix($app-color-blue, $app-color-gray, $origin-color-strength);
-    }
-    &.warning {
-      color: mix($app-color-yellow, $app-color-gray, $origin-color-strength);
-      border-color: mix($app-color-yellow, $app-color-gray, $origin-color-strength);
-    }
+  // warning
+  &.info {
+    @include button-filled($app-color-turquoise);
   }
 
   &.link {
@@ -136,81 +129,76 @@ button, .button {
     line-height: normal;
     &:active,
     &.active {
+      background: transparent;
       border-style: double;
       border-bottom-width: 1px;
+    }
+    &:hover {
+      background: transparent;
+    }
+    &.disabled,
+    &[disabled] {
+      background: transparent;
+      border-bottom-width: 0;
+    }
+
+    @include button-text($app-color-black);
+
+    &.success {
+      @include button-text($app-color-green);
+    }
+    &.danger {
+      @include button-text($app-color-red);
+    }
+    &.primary {
+      @include button-text($app-color-blue);
+    }
+    &.warning {
+      @include button-text($app-color-yellow);
+    }
+    &.info {
+      @include button-text($app-color-turquoise);
+    }
+  }
+
+  &.line {
+    @include button-lined($app-color-black, $app-color-gray);
+
+    // success
+    &.success {
+      @include button-lined($app-color-green);
+    }
+    &.danger {
+      @include button-lined($app-color-red);
+    }
+    &.primary {
+      @include button-lined($app-color-blue);
+    }
+    &.warning {
+      @include button-lined($app-color-yellow);
+    }
+    &.info {
+      @include button-lined($app-color-turquoise);
     }
   }
 
   // Icon
   &.icon {
-    padding: 0;
+    padding: 2px;
     min-width: em($line-height);
     border: none;
-    border-radius: 100%;
-    background: #f8f8f8;
+    border-radius: em($line-height);
+    line-height: em($line-height - 4px);
+    box-sizing: border-box;
     text-align: center;
-
-    &:hover {
-      background: darken(#f8f8f8, 2.5%);
+    &.icon-text > .icon {
+      min-width: em($line-height - 4px);
+      min-height: em($line-height - 4px);
+      border-radius: 100%;
+      background: rgba($app-color-white, 0.2);
     }
-    &:active {
-      background: darken(#f8f8f8, 5%);
-    }
-
-    &.success {
-      color: $app-color-white;
-      background: $app-color-green;
-
-      &:hover {
-        background: darken($app-color-green, 2.5%);
-      }
-      &:active {
-        background: darken($app-color-green, 5%);
-      }
-    }
-    &.danger {
-      color: $app-color-white;
-      background: $app-color-red;
-
-      &:hover {
-        background: darken($app-color-red, 2.5%);
-      }
-      &:active {
-        background: darken($app-color-red, 5%);
-      }
-
-      .badge {
-        border: 1px solid $app-color-white;
-      }
-    }
-    &.primary {
-      color: $app-color-white;
-      background: $app-color-blue;
-
-      &:hover {
-        background: darken($app-color-blue, 2.5%);
-      }
-      &:active {
-        background: darken($app-color-blue, 5%);
-      }
-
-      .badge {
-        border: 1px solid $app-color-white;
-      }
-    }
-
-    &.warning {
-      color: $app-color-white;
-      background: $app-color-yellow;
-      &:hover {
-        color: darken($app-color-yellow, 2.5%);
-        background: darken($app-color-yellow, 2.5%);
-      }
-      &:active,
-      &.active {
-        color: darken($app-color-yellow, 5%);
-        background: darken($app-color-yellow, 5%);
-      }
+    &> *:not(.icon):not(.badge) {
+      padding: 0 5px;
     }
   }
 }

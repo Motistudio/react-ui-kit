@@ -29,6 +29,9 @@ const getButtons = (props = {}) => {
       <p>
         <Button className={[text('Class name', ''), 'warning', className]} {...rest}>{'warning'}</Button>
       </p>
+      <p>
+        <Button className={[text('Class name', ''), 'info', className]} {...rest}>{'info'}</Button>
+      </p>
     </div>
   )
 }
@@ -39,8 +42,14 @@ storiesOf('Button', module)
     <Button />
   ))
   .add('With content', () => getButtons())
+  .add('Line', () => getButtons({className: 'line'}))
   .add('Link', () => getButtons({className: 'link'}))
   .add('Disabled', () => getButtons({disabled: true}))
+  .add('With icon', () => (
+    <p>
+      <Button className={text('Class name', '')} icon><Icon type='rocket' /><span>{'text'}</span></Button>
+    </p>
+  ))
   .add('Icon button', () => (
     <div>
       <Button className={text('Class name', '')} icon><Icon type='rocket' /></Button>
@@ -48,6 +57,7 @@ storiesOf('Button', module)
       <Button className={text('Class name', ''), 'success'} icon><Icon type='rocket' /></Button>
       <Button className={text('Class name', ''), 'danger'} icon><Icon type='rocket' /></Button>
       <Button className={text('Class name', ''), 'warning'} icon><Icon type='rocket' /></Button>
+      <Button className={text('Class name', ''), 'info'} icon><Icon type='rocket' /></Button>
     </div>
   ))
   .add('Icon button with a badge', () => (
