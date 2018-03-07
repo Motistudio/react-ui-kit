@@ -54,6 +54,7 @@ button, .button {
   position: relative;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   height: em($line-height);
   padding: 0 10px;
   background: $app-color-white;
