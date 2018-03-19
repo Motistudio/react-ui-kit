@@ -10,6 +10,7 @@ import Input from './Input'
 import Modal from './Modal'
 import ModalContainer from './ModalContainer'
 import Provider from './Provider'
+import Select from './Select'
 import Tabs from './Tabs'
 
 module.exports = {
@@ -23,5 +24,6 @@ module.exports = {
   Modal,
   ModalContainer,
   Provider,
+  Select,
   Tabs
 }

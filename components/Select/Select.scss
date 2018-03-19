@@ -1,0 +1,116 @@
+@import '../../style/vars';
+
+select,
+.select {
+  display: inline-flex;
+  align-items: center;
+  height: $line-height;
+  padding: 0 em(10px);
+  border: none;
+  outline: none;
+  border-radius: em(5px);
+  box-sizing: border-box;
+  border-radius: em($component-border-radius);
+  background: rgba($app-color-black, 0.05);
+  line-height: em($line-height);
+  transition: all .2s ease-in;
+
+  &:hover {
+    background: rgba($app-color-black, 0.075);
+  }
+  &:focus,
+  &:active,
+  &.focus,
+  &.active {
+    background: rgba($app-color-black, 0.1);
+  }
+
+  &.danger {
+    border: 1px solid rgba($app-color-red, 0.4);
+    &:focus {
+      border-color: rgba($app-color-red, 0.5);
+    }
+  }
+  &.success {
+    border: 1px solid rgba($app-color-green, 0.4);
+    &:focus {
+      border-color: rgba($app-color-green, 0.5);
+    }
+  }
+}
+
+.select {
+  position: relative;
+  padding-right: 20px;
+  cursor: pointer;
+
+  // making the arrow disapear
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  &::-ms-expand {
+    display: none; /* remove default arrow in IE 10 and 11 */
+  }
+
+  // style inner components
+  &> .arrow {
+    position: absolute;
+    display: block;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    content: '';
+  }
+  &> .arrow.default {
+    width: 0;
+    height: 0;
+    margin-top: -2.5px;
+    transform: translateY(0);
+    border-top: 5px solid rgba($app-color-black, 0.1);
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid transparent;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    right: 0;
+    top: $line-height;
+    border-radius: em($component-border-radius);
+    background: rgba($app-color-black, 0.1);
+    transition: all .2s ease-in;
+
+    li {
+      display: block;
+      transition: all .2s ease-in;
+      &:first-child a,
+      &:first-child span {
+        border-top-left-radius: em($component-border-radius);
+        border-top-right-radius: em($component-border-radius);
+      }
+      &:last-child a,
+      &:last-child span {
+        border-bottom-left-radius: em($component-border-radius);
+        border-bottom-right-radius: em($component-border-radius);
+      }
+
+      a, span {
+        display: block;
+        padding: 0 10px;
+      }
+
+      &:hover a,
+      &:hover span {
+        background: rgba($app-color-black, 0.1);
+      }
+    }
+  }
+
+  &.open .menu {
+    display: block;
+  }
+}

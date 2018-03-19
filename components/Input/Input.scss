@@ -1,13 +1,16 @@
 @import '../../style/vars';
 
+input[type=''],
 input[type='text'],
 input[type='password'],
 .input {
+  display: inline-flex;
+  align-items: center;
   height: $line-height;
   padding: 0 em(10px);
   border: none;
   outline: none;
-  border-radius: em(5px);
+  border-radius: em($component-border-radius);
   box-sizing: border-box;
   background: rgba($app-color-black, 0.05);
   line-height: em($line-height);
@@ -16,7 +19,10 @@ input[type='password'],
   &:hover {
     background: rgba($app-color-black, 0.075);
   }
-  &:focus {
+  &:focus,
+  &:active,
+  &.focus,
+  &.active {
     background: rgba($app-color-black, 0.1);
   }
 
@@ -34,23 +40,14 @@ input[type='password'],
   }
 }
 
-.input-component {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  white-space: nowrap;
-
-  &> .wrapper {
-    width: 100%;
-  }
-  input {
-    width: 100%;
-    box-sizing: border-box;
-  }
-  .icon {
-    position: absolute;
-    top: 50%;
-    margin-top: em(-8px);
-    right: em(5px);
+.input input,
+.input .input {
+  padding: 0;
+  border: none;
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    background: transparent;
   }
 }

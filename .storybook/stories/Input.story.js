@@ -9,12 +9,15 @@ import {Input} from '../../components'
 
 storiesOf('Input', module)
   .addDecorator(withKnobs)
+  .add('normal', () => (
+    <input type='text' placeholder={text('Placeholder', 'placeholder...')} />
+  ))
   .add('default', () => (
     <Input placeholder={text('Placeholder', 'placeholder...')} />
   ))
   .add('error', () => (
-    <Input placeholder={text('Placeholder', 'placeholder...')} inputClassName='danger' />
+    <Input placeholder={text('Placeholder', 'placeholder...')} className='danger' />
   ))
   .add('success', () => (
-    <Input placeholder={text('Placeholder', 'placeholder...')} inputClassName='success' />
+    <Input placeholder={text('Placeholder', 'placeholder...')} className='success' />
   ))
