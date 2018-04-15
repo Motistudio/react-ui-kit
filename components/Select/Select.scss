@@ -59,6 +59,8 @@ select,
     top: 50%;
     right: 5px;
     transform: translateY(-50%);
+    transition: all .2s ease-in;
+    transform: rotate(0deg);
     content: '';
   }
   &> .arrow.default {
@@ -110,7 +112,12 @@ select,
     }
   }
 
-  &.open .menu {
-    display: block;
+  &.open {
+    &> .arrow {
+      transform: rotate(180deg);
+    }
+    .menu {
+      display: block;
+    }
   }
 }

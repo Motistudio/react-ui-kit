@@ -1,5 +1,7 @@
 @import '../../style/vars';
 
+$input-border-radius: $component-border-radius !default;
+
 input[type=''],
 input[type='text'],
 input[type='password'],
@@ -10,7 +12,7 @@ input[type='password'],
   padding: 0 em(10px);
   border: none;
   outline: none;
-  border-radius: em($component-border-radius);
+  border-radius: em($input-border-radius);
   box-sizing: border-box;
   background: rgba($app-color-black, 0.05);
   line-height: em($line-height);

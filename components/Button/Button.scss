@@ -88,6 +88,14 @@ button, .button {
     line-height: em(10px);
   }
 
+  // indicates that there is an icon, but it's not the only element
+  .icon:first-child:not(:last-child) {
+    height: em($line-height - 2px);
+    width: em($line-height - 2px);
+    border-radius: 100%;
+    background: rgba($app-color-white, 0.2);
+  }
+
   @include button-filled($app-color-gray);
 
   &.disabled,

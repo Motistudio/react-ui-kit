@@ -6,29 +6,48 @@ import classNames from 'classnames'
 
 import './Select.scss'
 
-const getArrow = (props) => {
-  if (props.arrow) {
-    const Component = props.arrow
+const getArrow = (arrow) => {
+  if (arrow) {
+    const Component = arrow
     return (<Component className='arrow' />)
   }
   return (<span className='arrow default' />)
 }
 
+const onOpenClick = function (e) {
+  if (!this.element || !this.element.contains(e.target)) {
+    this.toggle(false)
+    document.removeEventListener('click', this.onOpenClick)
+  }
+}
+
 class Select extends React.PureComponent {
   constructor (props) {
     super(props)
+
+    this.element = null
+    this.onOpenClick = onOpenClick.bind(this)
     this.state = {
       open: props.open || false,
       selected: null
     }
   }
 
-  toggle (flag = !this.state.open) {
-    this.setState({open: flag})
+  componentWillUnmount () {
+    document.removeEventListener('click', this.onOpenClick)
   }
 
-  select (index) {
+  toggle (flag = !this.state.open) {
+    this.setState({open: flag})
+    if (flag) {
+      document.addEventListener('click', this.onOpenClick)
+    } else {
+      document.removeEventListener('click', this.onOpenClick)
+    }
+  }
 
+  select (option) {
+    this.setState({selected: option})
   }
 
   getOptions () {
@@ -42,11 +61,11 @@ class Select extends React.PureComponent {
           this.props.options.map((option, index) => {
             if (typeof option === 'string') {
               return (
-                <li key={index} onClick={() => select(index)}><span>{option}</span></li>
+                <li key={index} onClick={() => select(option)}><span>{option}</span></li>
               )
             }
             return (
-              <li key={index} onClick={() => select(index)}><span>{option.label}</span></li>
+              <li key={index} onClick={() => select(option)}><span>{option.label}</span></li>
             )
           })
         }
@@ -55,23 +74,27 @@ class Select extends React.PureComponent {
   }
 
   render () {
+    const {tagName, arrow} = this.props
+    const Component = tagName
     return (
-      <span className={classNames('select input', {'open': this.state.open})} onClick={this.toggle.bind(this, true)} onBlue={this.toggle.bind(this, false)}>
+      <Component ref={(el) => { this.element = el }} className={classNames('select input', {'open': this.state.open})} onClick={this.toggle.bind(this, true)} onBlur={this.toggle.bind(this, false)}>
         <span className='value'>{'select'}</span>
-        {getArrow(this.props)}
+        {getArrow(arrow)}
         {this.getOptions()}
-      </span>
+      </Component>
     )
   }
 }
 
 Select.propTypes = {
+  tagName: PropTypes.string,
   open: PropTypes.bool,
-  arrow: PropTypes.func,
+  arrow: PropTypes.element,
   options: PropTypes.array
 }
 
 Select.defaultProps = {
+  tagName: 'span',
   options: []
 }
 
