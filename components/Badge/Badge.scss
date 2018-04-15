@@ -1,5 +1,22 @@
 @import '../../style/vars';
 
+@mixin badge-filled ($color, $text-color: $app-color-black) {
+  color: $text-color;
+  background: $color;
+  border-width: 0;
+
+  @at-root a#{&},
+  &.clickable {
+    cursor: pointer;
+    &:hover {
+      background: lighten($color, 2.5%);
+    }
+    &:active {
+      background: darken($color, 5%);
+    }
+  }
+}
+
 .badge {
   display: inline-flex;
   align-items: center;
@@ -8,10 +25,9 @@
   min-height: em(25px);
   box-sizing: border-box;
   padding: 0 em(5px);
-  background: $app-color-lightgray;
   border-radius: em(25px);
+  @include badge-filled($app-color-lightgray, $app-color-black)
   text-align: center;
-  color: $app-color-black;
   line-height: em(25px);
   @include global-transition;
 
@@ -21,66 +37,15 @@
   }
 
   &.success {
-    color: #fff;
-    background: $app-color-green;
+    @include badge-filled($app-color-green, $app-color-white);
   }
   &.danger {
-    color: #fff;
-    background: $app-color-red;
+    @include badge-filled($app-color-red, $app-color-white);
   }
   &.warning {
-    color: #fff;
-    background: $app-color-yellow;
+    @include badge-filled($app-color-yellow, $app-color-white);
   }
   &.primary {
-    color: #fff;
-    background: $app-color-blue;
-  }
-}
-
-a.badge, .badge.clickable {
-  cursor: pointer;
-  &:hover {
-    background: lighten($app-color-lightgray, 10%);
-  }
-  &:active {
-    background: darken($app-color-lightgray, 10%);
-  }
-
-  // success
-  &.success {
-    &:hover {
-      background: lighten($app-color-green, 10%);
-    }
-    &:active {
-      background: darken($app-color-green, 10%);
-    }
-  }
-
-  &.danger {
-    &:hover {
-      background: lighten($app-color-red, 10%);
-    }
-    &:active {
-      background: darken($app-color-red, 10%);
-    }
-  }
-
-  &.warning {
-    &:hover {
-      background: lighten($app-color-yellow, 10%);
-    }
-    &:active {
-      background: darken($app-color-yellow, 10%);
-    }
-  }
-
-  &.primary {
-    &:hover {
-      background: lighten($app-color-blue, 10%);
-    }
-    &:active {
-      background: darken($app-color-blue, 10%);
-    }
+    @include badge-filled($app-color-blue, $app-color-white);
   }
 }
