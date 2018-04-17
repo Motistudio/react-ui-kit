@@ -15,6 +15,13 @@ const isIcon = (props) => {
   return props.hasOwnProperty('icon') && props.icon !== false
 }
 
+const getContent = (children) => {
+  if (typeof children === 'string') {
+    return (<span>{children}</span>)
+  }
+  return children
+}
+
 const Button = (props = {}) => {
   const {children, icon, className, ...otherProps} = props
   const isButtonIcon = isIcon(props)
@@ -24,7 +31,7 @@ const Button = (props = {}) => {
 
   return (
     <button {...otherProps} className={componentClassName}>
-      {icon ? children : (<span>{children}</span>)}
+      {getContent(children)}
     </button>
   )
 }

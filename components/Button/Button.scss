@@ -56,7 +56,7 @@ button, .button {
   align-items: center;
   justify-content: center;
   height: em($line-height);
-  padding: 0 10px;
+  padding: 0;
   background: $app-color-white;
   border: $button-border-width solid rgba($app-color-black, 0.2);
   border-radius: em($component-border-radius);
@@ -75,6 +75,18 @@ button, .button {
   &> span {
     font-size: em(14px);
   }
+  &> span:first-child:not(.icon) {
+    padding-left: em(10px, 14px);
+  }
+  &> span:last-child:not(.icon) {
+    padding-right: em(10px, 14px);
+  }
+  &> span:not(.icon) {
+    flex-grow: 1;
+  }
+  .icon + * {
+    margin-left: em(5px);
+  }
 
   .badge {
     position: absolute;
@@ -89,11 +101,12 @@ button, .button {
   }
 
   // indicates that there is an icon, but it's not the only element
-  .icon:first-child:not(:last-child) {
+  &:not(.icon) > .icon:first-child:not(:last-child) {
     height: em($line-height - 2px);
     width: em($line-height - 2px);
     border-radius: 100%;
     background: rgba($app-color-white, 0.2);
+    margin-left: 2px;
   }
 
   @include button-filled($app-color-gray);
@@ -200,14 +213,9 @@ button, .button {
     line-height: em($line-height - 4px);
     box-sizing: border-box;
     text-align: center;
-    &.icon-text > .icon {
-      min-width: em($line-height - 4px);
-      min-height: em($line-height - 4px);
-      border-radius: 100%;
-      background: rgba($app-color-white, 0.2);
-    }
-    &> *:not(.icon):not(.badge) {
-      padding: 0 5px;
+    &> .icon {
+      margin: 0;
+      background: transparent;
     }
   }
 }
