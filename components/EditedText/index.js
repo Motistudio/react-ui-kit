@@ -3,6 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import isEmpty from 'lodash/isEmpty'
 
 class EditedText extends React.PureComponent {
   constructor (props) {
@@ -16,16 +17,18 @@ class EditedText extends React.PureComponent {
     }
   }
 
-  componentWillReceiveProps (props) {
+  static getDerivedStateFromProps (props, state) {
+    const toUpdate = {}
     if (props.hasOwnProperty('value')) {
-      this.setState({
-        value: props.value,
-        editedValue: props.value
-      })
+      toUpdate['value'] = props.value
     }
-    if (props.hasOwnProperty('edit')) {
-      this.setState({edit: true})
+    if (props.edit !== state.edit) {
+      toUpdate['edit'] = !!props.edit
     }
+    if (!state.edit || !toUpdate['edit']) {
+      toUpdate['editedValue'] = props.value
+    }
+    return isEmpty(toUpdate) ? toUpdate : null
   }
 
   toggleMode (flag = !this.state.edit) {
