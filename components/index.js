@@ -7,8 +7,8 @@ import EditedText from './EditedText'
 import Gallery from './Gallery'
 import Icon from './Icon'
 import Input from './Input'
-import Modal from './Modal'
-import ModalContainer from './ModalContainer'
+// import Modal from './Modal'
+// import ModalContainer from './ModalContainer'
 import Provider from './Provider'
 // import Select from './Select'
 import Tabs from './Tabs'
@@ -21,8 +21,8 @@ module.exports = {
   Gallery,
   Icon,
   Input,
-  Modal,
-  ModalContainer,
+  // Modal,
+  // ModalContainer,
   Provider,
   // Select,
   Tabs
